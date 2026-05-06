@@ -2,6 +2,7 @@ const form = document.querySelector("#horoscope-form");
 const zodiacSelect = document.querySelector("#zodiac");
 const roleSelect = document.querySelector("#role");
 const rerollButton = document.querySelector("#reroll-button");
+const randomButton = document.querySelector("#random-button");
 
 const dateEl = document.querySelector("#reading-date");
 const titleEl = document.querySelector("#reading-title");
@@ -13,22 +14,22 @@ const cautionEl = document.querySelector("#caution");
 const openings = [
   "The stars have checked the release calendar and are hovering politely near 11:30.",
   "A tiny trend estimate is stretching before its public appearance.",
-  "Your morning contains a seasonally adjusted chance of useful insight.",
+  "Your morning has a seasonally adjusted chance of useful insight.",
   "The cosmos has opened the latest time series spreadsheet and whispered, 'mind the footnotes'.",
   "A small revision is approaching with a clipboard and excellent intentions.",
   "The universe is cross-classifying your day by state, age group, and snack preference.",
   "Mercury is in retrograde, which explains why SAS and Python are both claiming the same output.",
   "A carefully weighted omen has arrived from the sample frame.",
-  "Your statistical aura is glowing at approximately catalogue quality.",
+  "Your statistical aura is glowing at approximately publication quality.",
   "A confidentialised cell is winking from behind a perturbation method.",
-  "The planets are aligning by ASGS geography and asking for a concordance.",
+  "The planets are aligning with ASGS geography and asking for a concordance.",
   "A cheerful estimate is forming, subject to sampling error and afternoon tea.",
   "Your day begins with a clean metadata field and a suspiciously calm clearance queue.",
   "The moon has entered the data cube and is requesting a custom table.",
   "A small prophecy has appeared in the footnotes, where the real plot usually lives.",
   "The spirits of revisions past are being very reasonable today.",
   "Your query has returned exactly what you asked for, which is always a little unsettling.",
-  "A fresh download is available, and it has brought columns."
+  "A fresh download is available, and it has arrived bearing columns."
 ];
 
 const roleAdvice = {
@@ -43,7 +44,7 @@ const roleAdvice = {
   "National Accounts Analyst": [
     "GDP by expenditure and GDP by income may agree today, but let us not make it weird.",
     "Chain volume measures are smiling upon you from a carefully chosen reference year.",
-    "A balancing item will appear with the confidence of someone who knows where the Supply Use Tables live.",
+    "A balancing item will appear with the confidence of someone who knows where the supply-use tables live.",
     "Household final consumption expenditure has brought receipts and would like recognition.",
     "Seasonal adjustment is doing its best, even when Easter moves the furniture.",
     "A revision will improve history and still somehow feel personally targeted."
@@ -61,13 +62,13 @@ const roleAdvice = {
     "Births, deaths, and net overseas migration are asking to be reconciled before lunch.",
     "A preliminary estimate will become revised, then final, then oddly nostalgic.",
     "Today favours checking the age structure before making any dramatic statements about growth.",
-    "Interstate migration is carrying a suitcase and refusing to explain itself quickly.",
+    "Interstate migration has packed a suitcase and declined to explain itself quickly.",
     "Your population pyramid is balanced, elegant, and only slightly judging the axis labels."
   ],
   "Census Analyst": [
     "The Census has counted the household, the dwelling, and the emotional support spreadsheet.",
     "A mesh block is feeling tiny but important.",
-    "Today rewards careful handling of usual residence, place of enumeration, and people who ticked multiple boxes.",
+    "Today rewards careful handling of usual residence, place of enumeration, and people who ticked more than one box.",
     "SEIFA has entered the conversation and brought socioeconomic nuance in sensible shoes.",
     "A table builder request will look simple until geography, age, and tenure all arrive together.",
     "Your Census variable labels are long, specific, and somehow still not long enough."
@@ -83,7 +84,7 @@ const roleAdvice = {
   "Data Integration Specialist": [
     "The linkage keys are feeling cooperative, which is not a guarantee and should be celebrated quietly.",
     "A spine dataset will hold everything together while pretending this is normal.",
-    "Today favours provenance, permissions, and never naming a variable temp2_final.",
+    "Today favours provenance, permissions, and a firm refusal to name anything temp2_final.",
     "Your integrated asset wants metadata, governance, and a snack before production.",
     "A Python script and a SAS job will agree today, after a brief diplomatic incident.",
     "The join worked, but check the duplicates before declaring peace."
@@ -108,7 +109,7 @@ const roleAdvice = {
     "PROC SQL and pandas are making eye contact across the meeting room.",
     "Today favours translating macros without awakening ancient indentation feelings.",
     "A SAS format will become a Python mapping and everyone will pretend it was easy.",
-    "Your notebook is ready, but the production job would like logging, tests, and fewer vibes.",
+    "Your notebook is ready, but the production job would like logging, tests, and fewer loose vibes.",
     "A dataframe will match the SAS output exactly, which is both comforting and suspicious.",
     "The migration path is clear: validate, document, and do not insult the legacy code within earshot."
   ]
@@ -118,7 +119,7 @@ const zodiacFlavors = {
   Aries: [
     "Bold choices are favoured, especially asking whether that series should be original or seasonally adjusted.",
     "Charge bravely into the release checklist, but take a reference period and a snack.",
-    "Your inner fire is strong enough to challenge a suspiciously neat percentage change.",
+    "Your inner fire is strong enough to question a suspiciously neat percentage change.",
     "Today rewards decisive filtering and dramatic, but justified, metadata cleanup."
   ],
   Taurus: [
@@ -131,19 +132,19 @@ const zodiacFlavors = {
     "Two spreadsheets will both seem correct. Only one has the latest revision.",
     "Your curiosity is high, and so is your number of open ABS.Stat tabs.",
     "A cross-tab may speak to both sides of your personality.",
-    "You can hold two interpretations at once, but only one should go in Key statistics."
+    "You can hold two interpretations at once, but only one should go in the Key statistics."
   ],
   Cancer: [
     "Protect your clean dataset like a tiny candle in a clearance meeting.",
     "Your nurturing instincts are perfect for neglected explanatory notes.",
-    "A publication table needs emotional support and a better default geography.",
+    "A publication table needs emotional support and a better default geography level.",
     "Today favours gentle QA and strong boundaries around ad hoc requests."
   ],
   Leo: [
     "Your presentation energy is strong enough to make a line chart sit up straighter.",
     "A chart will look better after you give it a confident, accurate title.",
     "The spotlight is yours, but let the source note have a moment too.",
-    "Your insights are feeling glamorous, which is fine if the RSE agrees."
+    "Your insights are feeling glamorous, which is fine as long as the RSE agrees."
   ],
   Virgo: [
     "The universe applauds your classifications, quietly but sincerely.",
@@ -160,7 +161,7 @@ const zodiacFlavors = {
   Scorpio: [
     "You will discover something hidden in the source data and look very mysterious about it.",
     "Your investigative powers are strong, especially near unexplained nulls.",
-    "A buried assumption will reveal itself under your intense little audit trail.",
+    "A buried assumption will reveal itself during your intense little audit trail review.",
     "Keep your secrets close and your confidentiality rules closer."
   ],
   Sagittarius: [
@@ -260,6 +261,11 @@ function pick(items, seed, offset = 0) {
   return items[(seed + offset) % items.length];
 }
 
+function randomSelectOption(select) {
+  const randomIndex = Math.floor(Math.random() * select.options.length);
+  select.selectedIndex = randomIndex;
+}
+
 function makeLuckyValue(seed) {
   const specialChance = seed % 5 === 0;
 
@@ -320,6 +326,13 @@ form.addEventListener("submit", (event) => {
 
 rerollButton.addEventListener("click", () => {
   rerollCount += 1;
+  renderReading();
+});
+
+randomButton.addEventListener("click", () => {
+  randomSelectOption(zodiacSelect);
+  randomSelectOption(roleSelect);
+  rerollCount = 0;
   renderReading();
 });
 
