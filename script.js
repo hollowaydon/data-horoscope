@@ -89,6 +89,22 @@ const roleAdvice = {
     "A Python script and a SAS job will agree today, after a brief diplomatic incident.",
     "The join worked, but check the duplicates before declaring peace."
   ],
+  "Data Pipeline Engineer": [
+    "The pipeline is brave, the logs are chatty, and the scheduler is pretending it has always been this calm.",
+    "Today favours idempotent jobs, tidy parameters, and outputs that land exactly where the metadata says they will.",
+    "A failed task will succeed on retry, but only after making sure everyone was paying attention.",
+    "Your DAG wants fewer mystery dependencies and more affectionate monitoring.",
+    "A parquet file will arrive compact, columnar, and quietly pleased with itself.",
+    "The production run is stable, provided nobody edits the config five minutes before release."
+  ],
+  "Cloud Platform Engineer": [
+    "Your storage bucket is feeling organised, but one folder prefix has become philosophical.",
+    "Today favours least privilege, sensible tagging, and cost alerts that speak before finance does.",
+    "A container will build cleanly after one tiny environment variable learns where it lives.",
+    "The cloud console is calm, which is either excellent news or a reason to check the logs.",
+    "Your infrastructure-as-code plan looks reassuringly boring, the highest compliment available.",
+    "A Python job and a managed service will cooperate after a short conversation about permissions."
+  ],
   "Confidentiality Officer": [
     "A small cell count is trying to be brave. Protect it.",
     "Perturbation has sprinkled statistical fairy dust and everyone must now read the caveat.",
@@ -112,6 +128,54 @@ const roleAdvice = {
     "Your notebook is ready, but the production job would like logging, tests, and fewer loose vibes.",
     "A dataframe will match the SAS output exactly, which is both comforting and suspicious.",
     "The migration path is clear: validate, document, and do not insult the legacy code within earshot."
+  ],
+  "Crime and Justice Analyst": [
+    "Recorded crime is entering the room with counts, rates, and a strong request for context.",
+    "Today favours careful offence classifications and not comparing jurisdictions too casually.",
+    "A justice series will look dramatic until population denominators bring snacks and perspective.",
+    "Victimisation data has nuance, caveats, and a small umbrella for methodological weather.",
+    "Your table is ready, provided the rate per 100,000 people has been invited properly.",
+    "A time series break may appear wearing a tiny sign that says 'please read the notes'."
+  ],
+  "Business Indicators Analyst": [
+    "A monthly business turnover series is feeling lively and would like its industry division respected.",
+    "Today favours checking whether the movement is signal, seasonality, or a public holiday with opinions.",
+    "Inventories, wages, and sales are forming a small quarterly chorus in your spreadsheet.",
+    "A business conditions estimate will behave better after someone checks the sample rotation.",
+    "Your indicator is timely, useful, and still absolutely deserving of a caveat.",
+    "A percentage change will look charming, but the level series knows the backstory."
+  ],
+  "Building and Construction Analyst": [
+    "Building approvals are arriving with floor area, dwelling counts, and several feelings about revisions.",
+    "Today favours separating houses from other residential building before anyone gets too excited.",
+    "Construction work done is wearing a hard hat and asking whether current prices or chain volumes are required.",
+    "A state-level movement will look enormous until the original series explains itself.",
+    "Your pipeline contains concrete, cranes, and one suburb name that needs checking.",
+    "An alteration and addition will quietly insist it is important too."
+  ],
+  "Health Statistics Analyst": [
+    "Health conditions are lining up by age group and politely requesting a clear denominator.",
+    "Today favours careful interpretation, especially when self-reported data enters wearing soft shoes.",
+    "A wellbeing measure will be useful, nuanced, and impossible to summarise with one heroic number.",
+    "Your estimate has a pulse, a confidence interval, and several explanatory notes.",
+    "A cause-of-death table wants sensitivity, precision, and no decorative adjectives.",
+    "The age standardisation has arrived to make comparisons less chaotic."
+  ],
+  "Agriculture Statistics Analyst": [
+    "The farm data has brought hectares, livestock, and a weather caveat with excellent timing.",
+    "Today favours checking units before comparing tonnes, dollars, and deeply confident spreadsheets.",
+    "A regional estimate will behave after the geography concordance has had breakfast.",
+    "Your crop series is growing steadily, subject to rainfall, reporting cycles, and spreadsheet manners.",
+    "Livestock counts are moving through the table with rural dignity.",
+    "A commodity price will look simple until the seasonal pattern clears its throat."
+  ],
+  "Environment Accounts Analyst": [
+    "The environmental-economic accounts are balancing natural resources with spreadsheet serenity.",
+    "Today favours linking emissions, energy, water, and industry without making the chart need a nap.",
+    "A physical flow account will ask whether tonnes, gigalitres, or terajoules are emotionally appropriate.",
+    "Your indicator wants context, a boundary definition, and a nice clear unit of measure.",
+    "A natural capital table is quietly glowing near the national accounts.",
+    "The planet has entered the workbook and would like the methodology section treated kindly."
   ]
 };
 
