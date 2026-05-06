@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Horoscope</title>
+    <meta
+      name="description"
+      content="A cute daily horoscope for data people, complete with lucky numbers and spreadsheet omens."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="kicker">Tiny omens for tidy data</p>
+        <h1 id="page-title">Data Horoscope</h1>
+        <p class="lede">
+          Choose your zodiac sign and ABS-flavoured data role to receive a suspiciously specific daily forecast.
+        </p>
+      </section>
+
+      <section class="oracle" aria-label="Horoscope generator">
+        <form class="control-panel" id="horoscope-form">
+          <label for="zodiac">Zodiac sign</label>
+          <select id="zodiac" name="zodiac">
+            <option>Aries</option>
+            <option>Taurus</option>
+            <option>Gemini</option>
+            <option>Cancer</option>
+            <option>Leo</option>
+            <option>Virgo</option>
+            <option>Libra</option>
+            <option>Scorpio</option>
+            <option>Sagittarius</option>
+            <option>Capricorn</option>
+            <option>Aquarius</option>
+            <option>Pisces</option>
+          </select>
+
+          <label for="role">ABS data role</label>
+          <select id="role" name="role">
+            <option>Prices Analyst</option>
+            <option>National Accounts Analyst</option>
+            <option>Labour Stats Analyst</option>
+            <option>Population Estimates Analyst</option>
+            <option>Census Analyst</option>
+            <option>Survey Methodologist</option>
+            <option>Data Integration Specialist</option>
+            <option>Confidentiality Officer</option>
+            <option>Publication Wrangler</option>
+            <option>SAS-to-Python Diplomat</option>
+          </select>
+
+          <div class="button-row">
+            <button type="submit">Read my chart</button>
+            <button class="secondary" type="button" id="reroll-button">Refresh omen</button>
+          </div>
+        </form>
+
+        <article class="reading-card" aria-live="polite">
+          <div class="date-chip" id="reading-date"></div>
+          <h2 id="reading-title"></h2>
+          <p class="reading-text" id="reading-text"></p>
+
+          <div class="omens" aria-label="Lucky data details">
+            <div>
+              <span>Lucky value</span>
+              <strong id="lucky-number"></strong>
+            </div>
+            <div>
+              <span>Lucky chart</span>
+              <strong id="lucky-chart"></strong>
+            </div>
+            <div>
+              <span>Today&apos;s caution</span>
+              <strong id="caution"></strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
