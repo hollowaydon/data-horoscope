@@ -235,6 +235,7 @@ h2 {
   font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(1.25rem, 2.6vw, 2rem);
   line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 820px) {
